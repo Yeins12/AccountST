@@ -117,7 +117,7 @@ class PdfDetailAccountWidget {
       'Fecha',
       'Valor Cuota',
       'Capital',
-      'Intereses',
+      'Interés',
       'Mora',
       'Seguro',
       'Total Pago',

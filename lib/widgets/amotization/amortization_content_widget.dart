@@ -112,7 +112,7 @@ Widget listViewContent(
                   color: Colors.green[50],
                   child: Column(
                     children: [
-                      _listTile('Interes: ', '\$ ${datos[index].intres}',
+                      _listTile('Interés: ', '\$ ${datos[index].intres}',
                           Icons.show_chart),
                       _listTile('Capital: ', '\$ ${datos[index].cptal}',
                           Icons.attach_money),

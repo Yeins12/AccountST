@@ -252,7 +252,7 @@ class AccountDetailPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      _listTile('Intereses: ',
+                      _listTile('Interés: ',
                           creditDetail.detCuenta[index].intereses),
                       _listTile('Mora: ', creditDetail.detCuenta[index].mora),
                     ],

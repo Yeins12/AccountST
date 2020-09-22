@@ -279,7 +279,6 @@ class _AccountPageState extends State<AccountPage> {
                         MediaQuery.of(context).size.height);
                   }
                 } else {
-                  await Permission.storage.request();
                   cred.creditDetail == null
                       ? toastShow(context, 'Intenta nuevamente')
                       : PdfAccountWidget(
