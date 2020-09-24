@@ -29,6 +29,7 @@ class LoginService with ChangeNotifier {
       _clave = clave.trim();
       var peticion =
           await http.post(ruta, body: {'usuario': _idusr, 'clave': _clave});
+          //print(peticion.statusCode.toString());
       if (peticion.statusCode == 200) {
         var valor = convert.jsonDecode(peticion.body);
         //print(object)
@@ -69,9 +70,21 @@ class LoginService with ChangeNotifier {
             'Error inesperado, inténtelo  nuevamente', 1, medidaReferenciaAlto);
       }
     } catch (e) {
-      IndicadorProgreso.hide();
-      mostrarDialogoWidget(0, context, 'Aviso!',
+      if(e.toString().contains('SocketException')){
+        IndicadorProgreso.hide();
+        mostrarDialogoWidget(
+          0,
+          context,
+          'Aviso!',
+          'Verifica tu conexión a internet',
+          1,
+          medidaReferenciaAlto);
+      }else{
+        IndicadorProgreso.hide();
+        mostrarDialogoWidget(0, context, 'Aviso!',
           'Error inesperado, inténtelo  nuevamente', 1, medidaReferenciaAlto);
+      }
+      
     }
   }
 

@@ -43,7 +43,7 @@ dependencies:
   http: ^0.12.2
   shared_preferences: ^0.5.8
   provider: ^4.3.1
-  connectivity: ^0.4.9
+  simple_connectivity: ^0.1.1
   connectivity_macos: ^0.1.0+3
   get_it: ^4.0.4
   flutter_slidable: ^0.5.5
@@ -60,7 +60,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/img/icon.png"
+  image_path: "assets/img/icon.jpg"
   android: true
   ios: true
 

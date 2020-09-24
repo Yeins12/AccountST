@@ -1,5 +1,5 @@
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:simple_connectivity/simple_connectivity.dart';
 import '../../widgets/alert/alert_dialogo.dart';
 
 import '../../models/amortization_model.dart';
@@ -10,6 +10,7 @@ import 'dart:convert' as convert;
 
 class AmortizationService {
   static Future<AmortizationList> amortizationQuery(context, nrocredito) async {
+    double medidaReferenciaAlto = MediaQuery.of(context).size.height;
     AmortizationList amortizationCredit;
     final provider = Provider.of<LoginService>(context, listen: false);
     String ruta = 'http://conres.com.co/wsestadocuenta/amortiza.php';
@@ -35,6 +36,16 @@ class AmortizationService {
           return amortizationCredit;
         }
       } catch (e) {
+        if(e.toString().contains('SocketException')){
+          //IndicadorProgreso.hide();
+          mostrarDialogoWidget(
+            0,
+            context,
+            'Aviso!',
+            'Verifica tu conexión a internet',
+            1,
+            medidaReferenciaAlto);
+        }
         return amortizationCredit;
       }
     }

@@ -1,5 +1,5 @@
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/services.dart';
+import 'package:simple_connectivity/simple_connectivity.dart';
 import '../../widgets/alert/alert_dialogo.dart';
 import '../../service/login_service.dart';
 import 'package:provider/provider.dart';

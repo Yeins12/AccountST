@@ -72,7 +72,7 @@ class PdfDetailAccountWidget {
           'Tu detalle de cuenta ya está disponible!',
           platform,
           payload: json);
-
+    if(Platform.isAndroid){
       mostrarDialogoWidget(
           0,
           context,
@@ -80,6 +80,8 @@ class PdfDetailAccountWidget {
           'Tu archivo ha sido guardado en: \n\n $folder',
           1,
           MediaQuery.of(context).size.height);
+    }
+      
     } else {
       mostrarDialogoWidget(
           0,

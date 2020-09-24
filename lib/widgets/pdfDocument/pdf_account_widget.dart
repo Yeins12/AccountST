@@ -70,14 +70,16 @@ class PdfAccountWidget {
           'Tu estado de cuenta ya está disponible!',
           platform,
           payload: json);
-
-      mostrarDialogoWidget(
+      if(Platform.isAndroid){
+        mostrarDialogoWidget(
           0,
           context,
           'Aviso!',
           'Tu archivo ha sido guardado en: \n\n $folder',
           1,
           MediaQuery.of(context).size.height);
+      }
+      
     } else {
       mostrarDialogoWidget(
           0,
@@ -346,7 +348,6 @@ class PdfAccountWidget {
 
       //Create an empty file to write PDF data
       File file = File('$path/EstadoDeCuenta$name.pdf');
-
       //Write PDF data
       try {
         file.writeAsBytesSync(pdf.save());

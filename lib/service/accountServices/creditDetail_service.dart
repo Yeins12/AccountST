@@ -1,7 +1,6 @@
 import 'dart:async';
-
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_connectivity/simple_connectivity.dart';
 import '../../widgets/alert/alert_dialogo.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -31,7 +30,17 @@ class CreditDetailService {
           return creditDetailFinal;
         }
       } catch (e){
-        print(e);
+        if(e.toString().contains('SocketException')){
+          //IndicadorProgreso.hide();
+          mostrarDialogoWidget(
+            0,
+            context,
+            'Aviso!',
+            'Verifica tu conexión a internet',
+            1,
+            medidaReferenciaAlto);
+        }
+        return creditDetailFinal;
       } 
     }
 
